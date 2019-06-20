@@ -1,14 +1,11 @@
 package com.hossynohito.retrofit2kotlincoroutinessample.presentation.boarddetail
 
-import com.hossynohito.retrofit2kotlincoroutinessample.domain.entity.Board
 import com.hossynohito.retrofit2kotlincoroutinessample.domain.entity.Card
 import com.hossynohito.retrofit2kotlincoroutinessample.domain.usecase.BoardUseCase
-import kotlinx.coroutines.experimental.Job
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.launch
-import retrofit2.HttpException
-import java.io.IOException
-import java.net.HttpURLConnection
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class CardListFragmentPresenter @Inject constructor(
@@ -20,7 +17,7 @@ class CardListFragmentPresenter @Inject constructor(
     private val job = Job()
 
     fun onViewCreated() {
-        launch(job + UI) {
+        GlobalScope.launch(job + Dispatchers.Main) {
             loadCards()
         }
     }
@@ -30,13 +27,13 @@ class CardListFragmentPresenter @Inject constructor(
     }
 
     fun onAddButtonClick(text: String) {
-        launch(job + UI) {
+        GlobalScope.launch(job + Dispatchers.Main) {
             addCard(text)
         }
     }
 
     fun  onCardLongClick(card: Card) {
-        launch(job + UI) {
+        GlobalScope.launch(job + Dispatchers.Main) {
             deleteCard(card.id)
         }
     }

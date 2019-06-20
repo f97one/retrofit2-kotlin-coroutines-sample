@@ -2,9 +2,10 @@ package com.hossynohito.retrofit2kotlincoroutinessample.presentation.boarddetail
 
 import com.hossynohito.retrofit2kotlincoroutinessample.domain.entity.Board
 import com.hossynohito.retrofit2kotlincoroutinessample.domain.usecase.BoardUseCase
-import kotlinx.coroutines.experimental.Job
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.launch
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class BoardDetailPresenter @Inject constructor(
@@ -16,7 +17,7 @@ class BoardDetailPresenter @Inject constructor(
     private val job = Job()
 
     fun onViewCreated() {
-        launch(job + UI) {
+        GlobalScope.launch(job + Dispatchers.Main) {
             loadPipelines()
         }
     }

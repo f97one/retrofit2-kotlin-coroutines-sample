@@ -1,7 +1,7 @@
 package com.hossynohito.trello.data.network
 
 import com.hossynohito.retrofit2kotlincoroutinessample.domain.entity.Board
-import kotlinx.coroutines.experimental.Deferred
+import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

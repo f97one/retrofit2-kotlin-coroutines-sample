@@ -1,7 +1,7 @@
 package com.hossynohito.retrofit2kotlincoroutinessample.data.network
 
 import com.hossynohito.retrofit2kotlincoroutinessample.domain.entity.Card
-import kotlinx.coroutines.experimental.Deferred
+import kotlinx.coroutines.Deferred
 import retrofit2.http.*
 
 interface CardsApi {

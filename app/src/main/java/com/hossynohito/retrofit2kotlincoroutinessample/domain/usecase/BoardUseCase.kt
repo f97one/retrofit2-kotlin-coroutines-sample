@@ -9,8 +9,8 @@ import com.hossynohito.retrofit2kotlincoroutinessample.domain.entity.Board
 import com.hossynohito.retrofit2kotlincoroutinessample.domain.entity.Card
 import com.hossynohito.retrofit2kotlincoroutinessample.domain.entity.Pipeline
 import com.hossynohito.trello.data.network.MembersApi
-import kotlinx.coroutines.experimental.CommonPool
-import kotlinx.coroutines.experimental.withContext
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class BoardUseCase @Inject constructor(
@@ -20,23 +20,23 @@ class BoardUseCase @Inject constructor(
         private val cardsApi: CardsApi
 ) {
 
-    suspend fun getMyBoards(): List<Board> = withContext(CommonPool) {
+    suspend fun getMyBoards(): List<Board> = withContext(Dispatchers.Default) {
         membersApi.getBoards("me", API_KEY, ACCESS_TOKEN).await()
     }
 
-    suspend fun getPipelines(boardId: String): List<Pipeline> = withContext(CommonPool) {
+    suspend fun getPipelines(boardId: String): List<Pipeline> = withContext(Dispatchers.Default) {
         boardsApi.getPipelines(boardId, API_KEY, ACCESS_TOKEN).await()
     }
 
-    suspend fun getCards(pipelineId: String): List<Card> = withContext(CommonPool) {
+    suspend fun getCards(pipelineId: String): List<Card> = withContext(Dispatchers.Default) {
         listsApi.getCards(pipelineId, API_KEY, ACCESS_TOKEN).await()
     }
 
-    suspend fun addCard(pipelineId: String, cardName: String): Card = withContext(CommonPool) {
+    suspend fun addCard(pipelineId: String, cardName: String): Card = withContext(Dispatchers.Default) {
         cardsApi.addCard(pipelineId, cardName, API_KEY, ACCESS_TOKEN).await()
     }
 
-    suspend fun deleteCard(cardId: String) = withContext(CommonPool) {
+    suspend fun deleteCard(cardId: String) = withContext(Dispatchers.Default) {
         cardsApi.deleteCard(cardId, API_KEY, ACCESS_TOKEN).await()
     }
 }
