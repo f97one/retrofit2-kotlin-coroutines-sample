@@ -1,8 +1,8 @@
 package com.hossynohito.retrofit2kotlincoroutinessample.presentation.boardlist
 
 import android.os.Bundle
-import android.support.v7.widget.DividerItemDecoration
 import android.widget.Toast
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.hossynohito.retrofit2kotlincoroutinessample.R
 import com.hossynohito.retrofit2kotlincoroutinessample.domain.entity.Board
 import com.hossynohito.retrofit2kotlincoroutinessample.presentation.boarddetail.BoardDetailActivity

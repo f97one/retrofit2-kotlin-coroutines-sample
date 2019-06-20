@@ -3,9 +3,9 @@ package com.hossynohito.retrofit2kotlincoroutinessample.presentation.boarddetail
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import android.widget.Toast
 import com.hossynohito.retrofit2kotlincoroutinessample.R
 import com.hossynohito.retrofit2kotlincoroutinessample.domain.entity.Board
